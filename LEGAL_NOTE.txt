@@ -1,0 +1,5 @@
+ATENÇÃO — Evangelho (PDF enviado)
+O arquivo `evangelho-guillon.pdf` contém aviso de copyright (“todos os direitos reservados”, FEB).
+Por isso, este pacote NÃO publica automaticamente o texto integral desse PDF na internet.
+
+Se você tiver uma edição com licença aberta/domínio público, substitua o arquivo e use-o como base para gerar um JSON próprio.

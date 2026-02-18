@@ -1,0 +1,139 @@
+:root{
+  --ink:#1c140e;
+  --muted:#5b4a3c;
+  --paper:#f3ead2;
+  --paper2:#e8dbb8;
+  --border:#bfa67a;
+  --accent:#6e2b1b;
+  --max:1000px;
+  --radius:10px;
+  --shadow:0 18px 48px rgba(20,10,0,.18);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family: "Times New Roman", Times, Georgia, "Palatino Linotype", Palatino, serif;
+  background:
+    radial-gradient(900px 600px at 20% 0%, rgba(110,43,27,.10), transparent 60%),
+    radial-gradient(900px 600px at 80% 10%, rgba(28,20,14,.08), transparent 60%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper2) 100%);
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:var(--max);margin:0 auto;padding:18px 14px 54px}
+
+.header{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.55);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.header-top{
+  padding:14px 16px 10px;
+  display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+  border-bottom:1px solid rgba(191,166,122,.6);
+  background:linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.35));
+}
+.brand{flex:1;min-width:240px}
+.brand h1{margin:0;font-size:22px;letter-spacing:.5px}
+.brand .sub{margin-top:4px;font-size:13px;color:var(--muted)}
+.badge{
+  font-size:12px;padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(191,166,122,.95);
+  background:rgba(243,234,210,.92);
+  color:var(--muted);
+}
+
+.banner-wrap{border-top:1px solid rgba(191,166,122,.55);border-bottom:1px solid rgba(191,166,122,.55);}
+.banner-wrap img{
+  width:100%;height:180px;display:block;
+  object-fit:cover;
+  object-position:center 55%;
+  filter: sepia(.35) contrast(1.05) saturate(.9);
+}
+@media(max-width:640px){.banner-wrap img{height:140px}}
+
+.nav{
+  padding:10px 16px;
+  display:flex;gap:10px;flex-wrap:wrap;
+  align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.28);
+  border-top:1px dashed rgba(191,166,122,.7);
+}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:9px 14px;border-radius:999px;
+  border:1px solid rgba(191,166,122,.95);
+  background:linear-gradient(180deg, rgba(243,234,210,.98), rgba(232,219,184,.86));
+  color:var(--ink);
+}
+.button:hover{text-decoration:none}
+
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:18px}
+@media(max-width:920px){.grid{grid-template-columns:1fr}}
+
+.card{
+  border:1px solid rgba(191,166,122,.95);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.55);
+  box-shadow:0 12px 28px rgba(20,10,0,.12);
+  overflow:hidden;
+  position:relative;
+}
+.card:before{
+  content:"";
+  position:absolute; inset:12px;
+  border:2px double rgba(191,166,122,.7);
+  border-radius:8px;
+  pointer-events:none;
+}
+.card-h{padding:16px 16px 0;position:relative}
+.card-b{padding:16px;position:relative}
+h2{margin:0;font-size:19px}
+p{margin:10px 0 0;color:var(--muted);line-height:1.7}
+
+.quote{
+  padding:16px;border-radius:8px;
+  border:1px solid rgba(191,166,122,.95);
+  background:linear-gradient(180deg, rgba(243,234,210,.92), rgba(232,219,184,.70));
+}
+.quote .txt{font-size:19px;line-height:1.7}
+.dropcap::first-letter{
+  float:left;font-size:60px;line-height:0.95;
+  padding:8px 12px 0 0;margin:0 8px 0 0;
+  color:var(--accent);font-weight:700;
+}
+.quote .ref{margin-top:10px;color:var(--muted);font-size:13px}
+.small{font-size:12px;color:var(--muted)}
+
+.list{display:flex;flex-direction:column;gap:10px}
+.item{
+  display:flex;gap:12px;align-items:flex-start;justify-content:space-between;
+  padding:12px;border-radius:8px;
+  border:1px solid rgba(191,166,122,.95);
+  background:rgba(243,234,210,.56);
+}
+.meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.title{font-weight:700}
+.sub{color:var(--muted);font-size:12px}
+
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1;min-width:240px}
+input{
+  width:100%;padding:12px;border-radius:8px;
+  border:1px solid rgba(191,166,122,.95);
+  background:rgba(243,234,210,.92);
+  color:var(--ink);outline:none;
+  font-family: "Times New Roman", Times, Georgia, serif;
+}
+
+.table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;border:1px solid rgba(191,166,122,.95);background:rgba(243,234,210,.45)}
+.table th,.table td{padding:12px 10px;border-bottom:1px solid rgba(191,166,122,.45);text-align:left;font-size:14px}
+.table th{color:var(--muted);font-weight:700;background:rgba(232,219,184,.75)}
+.table tr.today td{background:rgba(110,43,27,.10);outline:2px solid rgba(110,43,27,.25);outline-offset:-2px}
+
+.footer{margin-top:26px;color:rgba(28,20,14,.65);font-size:12px;text-align:center}

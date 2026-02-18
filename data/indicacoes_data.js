@@ -1,0 +1,1 @@
+window.IND_DATA = [{"titulo": "FEB Editora", "url": "https://www.febeditora.com.br/product-list.ehc?typed=true&text=++"}, {"titulo": "Livraria Leal", "url": "https://www.livrarialeal.com.br"}, {"titulo": "O Clarim", "url": "https://www.oclarim.com.br"}, {"titulo": "Editora Fraternidade", "url": "https://www.editorafrater.com.br"}];

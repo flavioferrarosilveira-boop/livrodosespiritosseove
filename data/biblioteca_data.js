@@ -1,0 +1,1 @@
+window.BIB_DATA = [{"titulo": "PDF exemplo", "descricao": "Adicione seus PDFs na pasta /biblioteca e atualize este arquivo.", "url": "biblioteca/exemplo.pdf"}];

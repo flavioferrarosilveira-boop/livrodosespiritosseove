@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Portal — Estudo do Livro dos Espíritos</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+  <div class="header-top">
+    <div class="brand">
+      <h1>Estudo do Livro dos Espíritos</h1>
+      <div class="sub">Portal simples • visual clean • tipografia clássica</div>
+    </div>
+    <span class="badge">Espiritismo</span>
+  </div>
+  <div class="banner-wrap">
+    <img src="assets/img/banner.png" alt="Banner"/>
+  </div>
+  <div class="nav">
+    <div class="badge">Portal do Estudo</div>
+    <div class="links">
+      <a class="button" href="index.html">Início</a>
+      <a class="button" href="livro.html">Livro</a>
+      <a class="button" href="calendario.html">Calendário</a>
+      <a class="button" href="indicacoes.html">Indicações</a>
+      <a class="button" href="biblioteca.html">Biblioteca</a>
+    </div>
+  </div>
+</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-h">
+          <h2>Mensagem do dia — O Evangelho segundo o Espiritismo</h2>
+          <p>Mensagem curta rotativa automaticamente (diária).</p>
+        </div>
+        <div class="card-b">
+          <div class="quote">
+            <div id="mensagem-dia" class="txt dropcap">Carregando…</div>
+            <div id="mensagem-ref" class="ref"></div>
+            <div class="small"><a id="mensagem-link" href="#" target="_blank" rel="noopener" style="display:none;">Fonte</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h">
+          <h2>Materiais das aulas</h2>
+          <p>Área comum para você listar slides e documentos (download).</p>
+        </div>
+        <div class="card-b">
+          <div id="slides-list" class="list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer"><span id="visitas">Visitas: —</span> • Portal simples do estudo</div>
+  </div>
+
+  <script src="data/evangelho_mensagens_data.js"></script>
+  <script src="data/slides_data.js"></script>
+  <script type="module">
+    import { initEvangelho } from "./js/evangelho.js";
+    import { initSlides } from "./js/slides.js";
+    import { initVisitas } from "./js/visitas.js";
+    initEvangelho(); initSlides(); initVisitas();
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "aula-01-slides",
+      "titulo": "Slides — Aula 01",
+      "subtitulo": "Introdução",
+      "url": "#",
+      "public": true
+    },
+    {
+      "id": "aula-01-texto",
+      "titulo": "Texto — Aula 01",
+      "subtitulo": "Leitura complementar",
+      "url": "#",
+      "public": true
+    }
+  ]
+}

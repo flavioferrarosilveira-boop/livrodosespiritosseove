@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Indicações</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+  <div class="header-top">
+    <div class="brand">
+      <h1>Indicações de livros</h1>
+      <div class="sub">Links para editoras e livrarias espíritas</div>
+    </div>
+    <span class="badge">Espiritismo</span>
+  </div>
+  <div class="banner-wrap">
+    <img src="assets/img/banner.png" alt="Banner"/>
+  </div>
+  <div class="nav">
+    <div class="badge">Portal do Estudo</div>
+    <div class="links">
+      <a class="button" href="index.html">Início</a>
+      <a class="button" href="livro.html">Livro</a>
+      <a class="button" href="calendario.html">Calendário</a>
+      <a class="button" href="indicacoes.html">Indicações</a>
+      <a class="button" href="biblioteca.html">Biblioteca</a>
+    </div>
+  </div>
+</div>
+    <div class="card" style="margin-top:16px;">
+      <div class="card-h">
+        <h2>Onde encontrar livros</h2>
+        <p>Você pode adicionar/remover links em <span class="small">data/indicacoes.json</span>.</p>
+      </div>
+      <div class="card-b">
+        <div id="ind-list" class="list"></div>
+      </div>
+    </div>
+    <div class="footer"><span id="visitas">Visitas: —</span></div>
+  </div>
+
+  <script src="data/indicacoes_data.js"></script>
+  <script type="module">
+    import { initIndicacoes } from "./js/indicacoes.js";
+    import { initVisitas } from "./js/visitas.js";
+    initIndicacoes(); initVisitas();
+  </script>
+</body>
+</html>
