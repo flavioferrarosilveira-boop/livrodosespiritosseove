@@ -70,8 +70,16 @@ a:hover{text-decoration:underline}
   border:1px solid rgba(191,166,122,.95);
   background:linear-gradient(180deg, rgba(243,234,210,.98), rgba(232,219,184,.86));
   color:var(--ink);
+  transition:opacity .15s;
 }
-.button:hover{text-decoration:none}
+.button:hover{text-decoration:none;opacity:.85}
+.button:active{opacity:.65}
+.button[aria-current="page"]{
+  background:linear-gradient(180deg,rgba(110,43,27,.18),rgba(110,43,27,.09));
+  border-color:var(--accent);
+  color:var(--accent);
+  font-weight:700;
+}
 
 .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:18px}
 @media(max-width:920px){.grid{grid-template-columns:1fr}}
@@ -137,3 +145,6 @@ input{
 .table tr.today td{background:rgba(110,43,27,.10);outline:2px solid rgba(110,43,27,.25);outline-offset:-2px}
 
 .footer{margin-top:26px;color:rgba(28,20,14,.65);font-size:12px;text-align:center}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:640px){input{font-size:16px}}

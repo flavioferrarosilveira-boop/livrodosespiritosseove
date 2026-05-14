@@ -13,10 +13,18 @@ export function initLivro(){
   function render(list){
     out.innerHTML="";
     if(!list.length){
-      out.innerHTML = '<div class="item"><div class="meta"><div class="sub">Nenhum resultado.</div></div></div>';
+      out.innerHTML = '<div class="item"><div class="meta"><div class="sub">Nenhum resultado encontrado.</div></div></div>';
       return;
     }
-    for(const it of list.slice(0,60)){
+    const shown = list.slice(0,60);
+    const countEl = document.createElement("div");
+    countEl.className="small";
+    countEl.style.marginBottom="8px";
+    countEl.textContent = list.length > 60
+      ? `Exibindo 60 de ${list.length} resultados`
+      : `${list.length} resultado${list.length!==1?"s":""} encontrado${list.length!==1?"s":""}`;
+    out.appendChild(countEl);
+    for(const it of shown){
       const div=document.createElement("div");
       div.className="item";
       div.innerHTML = `
