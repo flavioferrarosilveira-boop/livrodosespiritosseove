@@ -12,7 +12,7 @@
   <div class="header-top">
     <div class="brand">
       <h1>Obras de Chico Xavier</h1>
-      <div class="sub">Busca por título, espírito ditante, série ou tema</div>
+      <div class="sub">Busca por título, espírito ditante, série ou no texto completo dos livros</div>
     </div>
     <span class="badge">Espiritismo</span>
   </div>
@@ -35,19 +35,23 @@
     <div class="card" style="margin-top:16px;">
       <div class="card-h">
         <h2>Pesquisar obras</h2>
-        <p>Digite palavras do título, nome do espírito ditante ou tema. Use os filtros para refinar por categoria, série ou período.</p>
+        <p>Digite palavras do título, nome do espírito, série ou tema. Quando os textos estiverem indexados, a busca encontra trechos e citações dentro dos livros.</p>
       </div>
       <div class="card-b">
 
-        <!-- Barra de busca -->
-        <div style="margin-bottom:12px;">
+        <!-- Barra de busca + modo -->
+        <div class="busca-top">
           <input type="search" id="busca-input"
-            placeholder="Ex: nosso lar, André Luiz, poesia, mediunidade…"
+            placeholder="Ex: nosso lar, André Luiz, reencarnação, amor e sabedoria…"
             autocomplete="off" spellcheck="false"/>
+          <select id="filtro-modo" title="Modo de busca">
+            <option value="meta">Metadados</option>
+            <option value="texto">Texto completo</option>
+          </select>
         </div>
 
         <!-- Filtros -->
-        <div class="filtros-wrap">
+        <div class="filtros-wrap" style="margin-top:10px;">
           <select id="filtro-categoria">
             <option value="">Todas as categorias</option>
           </select>
@@ -64,8 +68,11 @@
           </select>
         </div>
 
-        <!-- Contagem -->
-        <div id="busca-count" class="small" style="margin:14px 0 10px;"></div>
+        <!-- Status / spinner -->
+        <div style="display:flex;align-items:center;gap:10px;margin:14px 0 10px;">
+          <div id="busca-count" class="small"></div>
+          <div id="busca-spinner" class="spinner" hidden></div>
+        </div>
 
         <!-- Resultados -->
         <div id="busca-resultados" class="list"></div>
@@ -73,14 +80,20 @@
       </div>
     </div>
 
+    <!-- Nota sobre textos -->
     <div class="card aviso-card">
       <div class="card-b" style="padding:12px 16px;">
-        <p class="small" style="margin:0;line-height:1.6;">
-          <strong>Nota:</strong> Esta base contém ~85 obras selecionadas com base em fontes públicas.
-          Os dados (anos, editoras) são aproximados — consulte sempre fontes oficiais como a
-          <a href="https://www.febnet.org.br" target="_blank" rel="noopener">FEB</a> ou o
-          catálogo cronológico completo para verificação.
-          A base pode ser ampliada editando o arquivo <code>data/chico_xavier_data.js</code>.
+        <p class="small" style="margin:0 0 6px;line-height:1.7;">
+          <strong>Busca no texto completo</strong> — para ativar, rode o script abaixo
+          na sua máquina e copie a pasta <code>data/textos/</code> para o projeto:
+        </p>
+        <pre class="code-block">pip install requests beautifulsoup4
+python3 tools/baixar_obras.py</pre>
+        <p class="small" style="margin:6px 0 0;line-height:1.6;">
+          <strong>Metadados</strong>: ~85 obras com título, ano, editora, espírito e sinopse — já funciona sem download.
+          Dados são aproximados; verifique sempre na
+          <a href="https://www.febnet.org.br" target="_blank" rel="noopener">FEB</a>.
+          Amplie editando <code>data/chico_xavier_data.js</code>.
         </p>
       </div>
     </div>
@@ -90,7 +103,7 @@
 
   <script src="data/chico_xavier_data.js"></script>
   <script type="module">
-    import { initBusca } from "./js/busca.js";
+    import { initBusca }  from "./js/busca.js";
     import { initVisitas } from "./js/visitas.js";
     initBusca();
     initVisitas();
