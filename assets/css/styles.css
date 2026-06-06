@@ -123,13 +123,27 @@ p{margin:10px 0 0;color:var(--muted);line-height:1.7}
 
 .row{display:flex;gap:10px;flex-wrap:wrap}
 .row>*{flex:1;min-width:240px}
-input{
+input,select{
   width:100%;padding:12px;border-radius:8px;
   border:1px solid rgba(191,166,122,.95);
   background:rgba(243,234,210,.92);
   color:var(--ink);outline:none;
   font-family: "Times New Roman", Times, Georgia, serif;
+  font-size:14px;
 }
+select{cursor:pointer;padding-right:28px}
+
+.filtros-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:6px}
+
+.item-busca{flex-direction:column;align-items:stretch;gap:8px}
+@media(min-width:600px){.item-busca{flex-direction:row;align-items:flex-start}}
+.sinopse{color:var(--muted);font-size:12px;margin-top:4px;line-height:1.6}
+.busca-badges{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-start;justify-content:flex-end;min-width:100px}
+.badge-cat{background:rgba(110,43,27,.12);border-color:rgba(110,43,27,.35);color:var(--accent);white-space:nowrap}
+.badge-serie{background:rgba(28,80,110,.10);border-color:rgba(28,80,110,.30);color:#1c506e;white-space:nowrap}
+.busca-btn-ver{font-size:11px;padding:4px 10px;white-space:nowrap}
+.aviso-card{margin-top:12px;background:rgba(243,234,210,.45)}
+.aviso-card code{font-size:11px;background:rgba(191,166,122,.25);padding:1px 4px;border-radius:3px}
 
 .table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;border:1px solid rgba(191,166,122,.95);background:rgba(243,234,210,.45)}
 .table th,.table td{padding:12px 10px;border-bottom:1px solid rgba(191,166,122,.45);text-align:left;font-size:14px}

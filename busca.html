@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Busca — Obras de Chico Xavier</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+  <div class="header-top">
+    <div class="brand">
+      <h1>Obras de Chico Xavier</h1>
+      <div class="sub">Busca por título, espírito ditante, série ou tema</div>
+    </div>
+    <span class="badge">Espiritismo</span>
+  </div>
+  <div class="banner-wrap">
+    <img src="assets/img/banner.png" alt="Banner"/>
+  </div>
+  <div class="nav">
+    <div class="badge">Portal do Estudo</div>
+    <div class="links">
+      <a class="button" href="index.html">Início</a>
+      <a class="button" href="livro.html">Livro</a>
+      <a class="button" href="calendario.html">Calendário</a>
+      <a class="button" href="indicacoes.html">Indicações</a>
+      <a class="button" href="biblioteca.html">Biblioteca</a>
+      <a class="button" href="busca.html">Chico Xavier</a>
+    </div>
+  </div>
+</div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-h">
+        <h2>Pesquisar obras</h2>
+        <p>Digite palavras do título, nome do espírito ditante ou tema. Use os filtros para refinar por categoria, série ou período.</p>
+      </div>
+      <div class="card-b">
+
+        <!-- Barra de busca -->
+        <div style="margin-bottom:12px;">
+          <input type="search" id="busca-input"
+            placeholder="Ex: nosso lar, André Luiz, poesia, mediunidade…"
+            autocomplete="off" spellcheck="false"/>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filtros-wrap">
+          <select id="filtro-categoria">
+            <option value="">Todas as categorias</option>
+          </select>
+          <select id="filtro-serie">
+            <option value="">Todas as séries</option>
+          </select>
+          <select id="filtro-periodo">
+            <option value="">Todos os períodos</option>
+          </select>
+          <select id="filtro-ordenar">
+            <option value="ano-asc">Mais antigo primeiro</option>
+            <option value="ano-desc">Mais recente primeiro</option>
+            <option value="titulo">A → Z</option>
+          </select>
+        </div>
+
+        <!-- Contagem -->
+        <div id="busca-count" class="small" style="margin:14px 0 10px;"></div>
+
+        <!-- Resultados -->
+        <div id="busca-resultados" class="list"></div>
+
+      </div>
+    </div>
+
+    <div class="card aviso-card">
+      <div class="card-b" style="padding:12px 16px;">
+        <p class="small" style="margin:0;line-height:1.6;">
+          <strong>Nota:</strong> Esta base contém ~85 obras selecionadas com base em fontes públicas.
+          Os dados (anos, editoras) são aproximados — consulte sempre fontes oficiais como a
+          <a href="https://www.febnet.org.br" target="_blank" rel="noopener">FEB</a> ou o
+          catálogo cronológico completo para verificação.
+          A base pode ser ampliada editando o arquivo <code>data/chico_xavier_data.js</code>.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer"><span id="visitas">Visitas: —</span> · Portal do Estudo</div>
+  </div>
+
+  <script src="data/chico_xavier_data.js"></script>
+  <script type="module">
+    import { initBusca } from "./js/busca.js";
+    import { initVisitas } from "./js/visitas.js";
+    initBusca();
+    initVisitas();
+  </script>
+</body>
+</html>
