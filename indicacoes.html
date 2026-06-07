@@ -3,51 +3,49 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Indicações</title>
+  <title>Indicações — Portal Espírita</title>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-  <div class="header-top">
-    <div class="brand">
-      <h1>Indicações de livros</h1>
-      <div class="sub">Links para editoras e livrarias espíritas</div>
-    </div>
-    <span class="badge">Espiritismo</span>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-title" href="index.html">Portal <span>Espírita</span></a>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="busca.html">Chico Xavier</a></li>
+      <li><a href="livro.html">Livro dos Espíritos</a></li>
+      <li><a href="evangelho.html">Evangelho</a></li>
+      <li><a href="biblioteca.html">Biblioteca</a></li>
+      <li><a href="calendario.html">Calendário</a></li>
+    </ul></nav>
   </div>
-  <div class="banner-wrap">
-    <img src="assets/img/banner.png" alt="Banner"/>
-  </div>
-  <div class="nav">
-    <div class="badge">Portal do Estudo</div>
-    <div class="links">
-      <a class="button" href="index.html">Início</a>
-      <a class="button" href="livro.html">Livro</a>
-      <a class="button" href="calendario.html">Calendário</a>
-      <a class="button" href="indicacoes.html">Indicações</a>
-      <a class="button" href="biblioteca.html">Biblioteca</a>
-      <a class="button" href="busca.html">Chico Xavier</a>
-    </div>
-  </div>
-</div>
-    <div class="card" style="margin-top:16px;">
-      <div class="card-h">
-        <h2>Onde encontrar livros</h2>
-        <p>Você pode adicionar/remover links em <span class="small">data/indicacoes.json</span>.</p>
-      </div>
-      <div class="card-b">
-        <div id="ind-list" class="list"></div>
-      </div>
-    </div>
-    <div class="footer"><span id="visitas">Visitas: —</span></div>
+</header>
+
+<main class="container">
+
+  <div class="page-hd">
+    <h1>Indicações</h1>
+    <p>Links para editoras e livrarias espíritas. Edite <code>data/indicacoes.json</code> para personalizar.</p>
   </div>
 
-  <script src="data/indicacoes_data.js"></script>
-  <script type="module">
-    import { initIndicacoes } from "./js/indicacoes.js";
-    import { initVisitas } from "./js/visitas.js";
-    initIndicacoes(); initVisitas();
-  </script>
+  <div class="card">
+    <div class="card-b">
+      <div id="ind-list" class="list"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Portal Espírita · <span id="visitas"></span>
+</footer>
+
+<script src="data/indicacoes_data.js"></script>
+<script type="module">
+  import { initIndicacoes } from "./js/indicacoes.js";
+  import { initVisitas }    from "./js/visitas.js";
+  initIndicacoes(); initVisitas();
+</script>
 </body>
 </html>

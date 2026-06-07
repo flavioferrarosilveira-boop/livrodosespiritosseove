@@ -3,58 +3,55 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Livro dos Espíritos — Busca</title>
+  <title>Livro dos Espíritos — Portal Espírita</title>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-  <div class="header-top">
-    <div class="brand">
-      <h1>Livro dos Espíritos</h1>
-      <div class="sub">Busca por número ou por palavras (pergunta e resposta)</div>
-    </div>
-    <span class="badge">Espiritismo</span>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-title" href="index.html">Portal <span>Espírita</span></a>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="busca.html">Chico Xavier</a></li>
+      <li><a href="livro.html" class="ativo">Livro dos Espíritos</a></li>
+      <li><a href="evangelho.html">Evangelho</a></li>
+      <li><a href="biblioteca.html">Biblioteca</a></li>
+      <li><a href="calendario.html">Calendário</a></li>
+    </ul></nav>
   </div>
-  <div class="banner-wrap">
-    <img src="assets/img/banner.png" alt="Banner"/>
-  </div>
-  <div class="nav">
-    <div class="badge">Portal do Estudo</div>
-    <div class="links">
-      <a class="button" href="index.html">Início</a>
-      <a class="button" href="livro.html">Livro</a>
-      <a class="button" href="calendario.html">Calendário</a>
-      <a class="button" href="indicacoes.html">Indicações</a>
-      <a class="button" href="biblioteca.html">Biblioteca</a>
-      <a class="button" href="busca.html">Chico Xavier</a>
-    </div>
-  </div>
-</div>
-    <div class="card" style="margin-top:16px;">
-      <div class="card-h">
-        <h2>Buscar perguntas</h2>
-        <p>Digite um número (ex.: 1) ou uma palavra (ex.: Deus, alma, reencarnação).</p>
-      </div>
-      <div class="card-b">
-        <div class="row">
-          <div><div class="small">Número</div><input id="le-numero" placeholder="Ex.: 1"/></div>
-          <div><div class="small">Palavra / tema</div><input id="le-texto" placeholder="Ex.: Deus"/></div>
-        </div>
-        <div style="margin-top:10px;">
-          <a class="button" href="#" id="le-buscar">Buscar</a>
-        </div>
-        <div id="le-resultados" class="list" style="margin-top:12px;"></div>
-      </div>
-    </div>
-    <div class="footer"><span id="visitas">Visitas: —</span></div>
+</header>
+
+<main class="container">
+
+  <div class="page-hd">
+    <h1>O Livro dos Espíritos</h1>
+    <p>Allan Kardec · 1857 · Busque por número de pergunta ou por palavras.</p>
   </div>
 
-  <script src="data/livro_dos_espiritos_data.js"></script>
-  <script type="module">
-    import { initLivro } from "./js/livro.js";
-    import { initVisitas } from "./js/visitas.js";
-    initLivro(); initVisitas();
-  </script>
+  <div class="card">
+    <div class="card-b">
+      <div class="search-bar">
+        <input id="le-numero" type="number" placeholder="Nº da pergunta (ex.: 1)" min="1" max="1019" style="max-width:200px"/>
+        <input id="le-texto"  type="search" placeholder="Palavra ou tema (ex.: Deus, alma, reencarnação)"/>
+        <button class="btn btn-primary" id="le-buscar">Buscar</button>
+      </div>
+      <div class="count-label"><span id="le-count"></span></div>
+      <div id="le-resultados" class="list"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Portal Espírita · <span id="visitas"></span>
+</footer>
+
+<script src="data/livro_dos_espiritos_data.js"></script>
+<script type="module">
+  import { initLivro }  from "./js/livro.js";
+  import { initVisitas } from "./js/visitas.js";
+  initLivro(); initVisitas();
+</script>
 </body>
 </html>

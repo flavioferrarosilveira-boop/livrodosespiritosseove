@@ -3,51 +3,58 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Biblioteca digital</title>
+  <title>Biblioteca Digital — Portal Espírita</title>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-  <div class="header-top">
-    <div class="brand">
-      <h1>Biblioteca digital</h1>
-      <div class="sub">Adicione seus PDFs e liste aqui para download</div>
-    </div>
-    <span class="badge">Espiritismo</span>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-title" href="index.html">Portal <span>Espírita</span></a>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="busca.html">Chico Xavier</a></li>
+      <li><a href="livro.html">Livro dos Espíritos</a></li>
+      <li><a href="evangelho.html">Evangelho</a></li>
+      <li><a href="biblioteca.html" class="ativo">Biblioteca</a></li>
+      <li><a href="calendario.html">Calendário</a></li>
+    </ul></nav>
   </div>
-  <div class="banner-wrap">
-    <img src="assets/img/banner.png" alt="Banner"/>
-  </div>
-  <div class="nav">
-    <div class="badge">Portal do Estudo</div>
-    <div class="links">
-      <a class="button" href="index.html">Início</a>
-      <a class="button" href="livro.html">Livro</a>
-      <a class="button" href="calendario.html">Calendário</a>
-      <a class="button" href="indicacoes.html">Indicações</a>
-      <a class="button" href="biblioteca.html">Biblioteca</a>
-      <a class="button" href="busca.html">Chico Xavier</a>
-    </div>
-  </div>
-</div>
-    <div class="card" style="margin-top:16px;">
-      <div class="card-h">
-        <h2>PDFs</h2>
-        <p>Coloque os arquivos na pasta <span class="small">/biblioteca</span> e atualize <span class="small">data/biblioteca.json</span>.</p>
-      </div>
-      <div class="card-b">
-        <div id="bib-list" class="list"></div>
-      </div>
-    </div>
-    <div class="footer"><span id="visitas">Visitas: —</span></div>
+</header>
+
+<main class="container">
+
+  <div class="page-hd">
+    <h1>Biblioteca Digital</h1>
+    <p>PDFs e materiais do grupo de estudo disponíveis para download.</p>
   </div>
 
-  <script src="data/biblioteca_data.js"></script>
-  <script type="module">
-    import { initBiblioteca } from "./js/biblioteca.js";
-    import { initVisitas } from "./js/visitas.js";
-    initBiblioteca(); initVisitas();
-  </script>
+  <div class="card">
+    <div class="card-b">
+      <div id="bib-list" class="list"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:0;background:var(--bg-alt)">
+    <div class="card-b" style="padding:14px 20px">
+      <p style="font-size:13px;margin:0;color:var(--muted)">
+        Para adicionar materiais, coloque os arquivos na pasta <code>/biblioteca</code>
+        e atualize o arquivo <code>data/biblioteca.json</code> com título, descrição e URL.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Portal Espírita · <span id="visitas"></span>
+</footer>
+
+<script src="data/biblioteca_data.js"></script>
+<script type="module">
+  import { initBiblioteca } from "./js/biblioteca.js";
+  import { initVisitas }    from "./js/visitas.js";
+  initBiblioteca(); initVisitas();
+</script>
 </body>
 </html>
