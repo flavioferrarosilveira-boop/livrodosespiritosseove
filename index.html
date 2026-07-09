@@ -3,69 +3,111 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Portal — Estudo do Livro dos Espíritos</title>
+  <title>Livro dos Espíritos — Portal de Estudo</title>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
   <div class="container">
     <div class="header">
-  <div class="header-top">
-    <div class="brand">
-      <h1>Estudo do Livro dos Espíritos</h1>
-      <div class="sub">Portal simples • visual clean • tipografia clássica</div>
-    </div>
-    <span class="badge">Espiritismo</span>
-  </div>
-  <div class="banner-wrap">
-    <img src="assets/img/banner.png" alt="Banner"/>
-  </div>
-  <div class="nav">
-    <div class="badge">Portal do Estudo</div>
-    <div class="links">
-      <a class="button" href="index.html">Início</a>
-      <a class="button" href="livro.html">Livro</a>
-      <a class="button" href="calendario.html">Calendário</a>
-      <a class="button" href="indicacoes.html">Indicações</a>
-      <a class="button" href="biblioteca.html">Biblioteca</a>
-      <a class="button" href="busca.html">Chico Xavier</a>
-    </div>
-  </div>
-</div>
-    <div class="grid">
-      <div class="card">
-        <div class="card-h">
-          <h2>Mensagem do dia — O Evangelho segundo o Espiritismo</h2>
-          <p>Mensagem curta rotativa automaticamente (diária).</p>
+      <div class="header-top">
+        <div class="brand">
+          <h1>Livro dos Espíritos</h1>
+          <div class="sub">Portal de estudo • Allan Kardec • 1.018 perguntas e respostas</div>
         </div>
-        <div class="card-b">
-          <div class="quote">
-            <div id="mensagem-dia" class="txt dropcap">Carregando…</div>
-            <div id="mensagem-ref" class="ref"></div>
-            <div class="small"><a id="mensagem-link" href="#" target="_blank" rel="noopener" style="display:none;">Fonte</a></div>
-          </div>
-        </div>
+        <span class="badge">Espiritismo</span>
       </div>
-      <div class="card">
-        <div class="card-h">
-          <h2>Materiais das aulas</h2>
-          <p>Área comum para você listar slides e documentos (download).</p>
-        </div>
-        <div class="card-b">
-          <div id="slides-list" class="list"></div>
+      <div class="banner-wrap">
+        <img src="assets/img/banner.png" alt="Banner"/>
+      </div>
+      <div class="nav">
+        <div class="badge">Portal do Estudo</div>
+        <div class="links">
+          <a class="button active-page" href="index.html">Início</a>
+          <a class="button" href="livro.html">Leitura</a>
+          <a class="button" href="estudo.html">Estudo</a>
+          <a class="button" href="notas.html">Notas</a>
+          <a class="button" href="busca.html">Chico Xavier</a>
         </div>
       </div>
     </div>
 
-    <div class="footer"><span id="visitas">Visitas: —</span> • Portal simples do estudo</div>
+    <!-- Pergunta do dia -->
+    <div class="card mt" style="margin-top:18px">
+      <div class="card-h">
+        <h2>Pergunta do dia</h2>
+        <p>Uma pergunta rotativa, diferente a cada dia.</p>
+      </div>
+      <div class="card-b">
+        <div class="quote">
+          <div id="pd-num" class="small" style="margin-bottom:6px"></div>
+          <div id="pd-q" class="txt dropcap"></div>
+          <div id="pd-r" class="ref" style="margin-top:10px"></div>
+        </div>
+        <div style="margin-top:10px">
+          <a id="pd-link" class="button" href="livro.html" style="font-size:13px">Ver no livro</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature cards -->
+    <div class="feat-cards">
+      <a class="feat-card" href="livro.html">
+        <div class="feat-icon">📖</div>
+        <div class="feat-title">Leitura &amp; Busca</div>
+        <div class="feat-desc">Leia o livro por partes, navegue entre perguntas e pesquise por palavras ou números.</div>
+      </a>
+      <a class="feat-card" href="estudo.html">
+        <div class="feat-icon">🎓</div>
+        <div class="feat-title">Estudo Guiado</div>
+        <div class="feat-desc">Plano de leitura com progresso salvo. Avance no ritmo que desejar — 7, 30, 60 ou 365 dias.</div>
+      </a>
+      <a class="feat-card" href="notas.html">
+        <div class="feat-icon">✏️</div>
+        <div class="feat-title">Minhas Notas</div>
+        <div class="feat-desc">Escreva comentários e reflexões pessoais em qualquer pergunta. Salvos no seu dispositivo.</div>
+      </a>
+      <a class="feat-card" href="busca.html">
+        <div class="feat-icon">🔍</div>
+        <div class="feat-title">Obras de Chico Xavier</div>
+        <div class="feat-desc">Pesquise no acervo de obras psicografadas por Chico Xavier — título, espírito e série.</div>
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat"><div class="stat-n">1.018</div><div class="stat-l">Perguntas e Respostas</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Partes da Obra</div></div>
+      <div class="stat"><div class="stat-n">1857</div><div class="stat-l">Ano de publicação</div></div>
+      <div class="stat"><div class="stat-n" id="stat-notas">—</div><div class="stat-l">Suas anotações</div></div>
+    </div>
+
+    <div class="footer"><span id="visitas">Visitas: —</span> · Livro dos Espíritos — Allan Kardec</div>
   </div>
 
-  <script src="data/evangelho_mensagens_data.js"></script>
-  <script src="data/slides_data.js"></script>
+  <script src="data/livro_dos_espiritos_data.js"></script>
   <script type="module">
-    import { initEvangelho } from "./js/evangelho.js";
-    import { initSlides } from "./js/slides.js";
+    import { dayOfYear } from "./js/app.js";
     import { initVisitas } from "./js/visitas.js";
-    initEvangelho(); initSlides(); initVisitas();
+
+    const data = window.LE_DATA || [];
+    const idx = dayOfYear(new Date()) % data.length;
+    const q = data[idx];
+    if(q){
+      document.getElementById("pd-num").textContent = "Pergunta nº " + q.numero;
+      document.getElementById("pd-q").textContent = q.pergunta;
+      if(q.resposta) document.getElementById("pd-r").textContent = q.resposta.slice(0,280) + (q.resposta.length > 280 ? "…" : "");
+      document.getElementById("pd-link").href = "livro.html?n=" + q.numero;
+    }
+
+    // Count notes
+    let nNotes = 0;
+    for(let i=0;i<localStorage.length;i++){
+      const k=localStorage.key(i);
+      if(k && k.startsWith("nota-le-") && localStorage.getItem(k).trim()) nNotes++;
+    }
+    document.getElementById("stat-notas").textContent = nNotes;
+
+    initVisitas();
   </script>
 </body>
 </html>

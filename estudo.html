@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Livro dos Espíritos — Estudo Guiado</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Estudo Guiado</h1>
+          <div class="sub">Plano de leitura com progresso salvo no seu dispositivo</div>
+        </div>
+        <span class="badge">Livro dos Espíritos</span>
+      </div>
+      <div class="banner-wrap">
+        <img src="assets/img/banner.png" alt="Banner"/>
+      </div>
+      <div class="nav">
+        <div class="badge">Portal do Estudo</div>
+        <div class="links">
+          <a class="button" href="index.html">Início</a>
+          <a class="button" href="livro.html">Leitura</a>
+          <a class="button active-page" href="estudo.html">Estudo</a>
+          <a class="button" href="notas.html">Notas</a>
+          <a class="button" href="busca.html">Chico Xavier</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress summary -->
+    <div class="card" style="margin-top:16px" id="progresso-card">
+      <div class="card-h">
+        <h2>Seu progresso</h2>
+      </div>
+      <div class="card-b">
+        <div id="prog-info" class="small" style="margin-bottom:8px"></div>
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span id="prog-label-esq">0 perguntas lidas</span>
+            <span id="prog-label-dir">1.018 total</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="button" id="btn-resetar" style="font-size:13px">Reiniciar plano</button>
+          <button class="button" id="btn-exportar" style="font-size:13px">Exportar progresso</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan selector (shown when no plan active) -->
+    <div class="card" style="margin-top:14px" id="plano-selector">
+      <div class="card-h">
+        <h2>Escolha um plano</h2>
+        <p>Selecione o ritmo de leitura. O progresso é salvo no seu navegador.</p>
+      </div>
+      <div class="card-b">
+        <div id="planos-lista">
+          <label class="plan-option" id="opt-7">
+            <input type="radio" name="plano" value="7"/>
+            <div class="plan-option-body">
+              <div class="plan-option-title">7 dias — Imersão</div>
+              <div class="plan-option-sub">~145 perguntas por dia — leitura intensa</div>
+            </div>
+          </label>
+          <label class="plan-option" id="opt-30">
+            <input type="radio" name="plano" value="30"/>
+            <div class="plan-option-body">
+              <div class="plan-option-title">30 dias — Mensal</div>
+              <div class="plan-option-sub">~34 perguntas por dia — ritmo moderado</div>
+            </div>
+          </label>
+          <label class="plan-option" id="opt-60">
+            <input type="radio" name="plano" value="60"/>
+            <div class="plan-option-body">
+              <div class="plan-option-title">60 dias — Tranquilo</div>
+              <div class="plan-option-sub">~17 perguntas por dia — leitura pausada</div>
+            </div>
+          </label>
+          <label class="plan-option" id="opt-365">
+            <input type="radio" name="plano" value="365"/>
+            <div class="plan-option-body">
+              <div class="plan-option-title">365 dias — Anual</div>
+              <div class="plan-option-sub">~3 perguntas por dia — meditativo e profundo</div>
+            </div>
+          </label>
+        </div>
+        <button class="button" id="btn-iniciar" style="margin-top:12px">Iniciar plano</button>
+      </div>
+    </div>
+
+    <!-- Today's session -->
+    <div class="card" style="margin-top:14px" id="sessao-hoje" hidden>
+      <div class="card-h">
+        <h2 id="sessao-titulo">Leitura de hoje</h2>
+        <p id="sessao-sub"></p>
+      </div>
+      <div class="card-b">
+        <div id="sessao-lista" class="list" style="gap:6px"></div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="button" id="btn-marcar-todos">Marcar todos como lidos</button>
+          <a class="button" id="btn-ler-primeiro" href="livro.html" style="font-size:13px">Abrir no leitor</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer"><span id="visitas">Visitas: —</span> · Livro dos Espíritos — Allan Kardec</div>
+  </div>
+
+  <script src="data/livro_dos_espiritos_data.js"></script>
+  <script type="module">
+    import { initEstudo } from "./js/estudo.js";
+    import { initVisitas } from "./js/visitas.js";
+    initEstudo();
+    initVisitas();
+  </script>
+</body>
+</html>
