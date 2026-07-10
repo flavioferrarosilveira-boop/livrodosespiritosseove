@@ -12,7 +12,7 @@
       <div class="header-top">
         <div class="brand">
           <h1>Livro dos Espíritos</h1>
-          <div class="sub">Portal de estudo • Allan Kardec • 1.018 perguntas e respostas</div>
+          <div class="sub">Allan Kardec · 1857 · 1.018 perguntas e respostas</div>
         </div>
         <span class="badge">Espiritismo</span>
       </div>
@@ -26,16 +26,15 @@
           <a class="button" href="livro.html">Leitura</a>
           <a class="button" href="estudo.html">Estudo</a>
           <a class="button" href="notas.html">Notas</a>
-          <a class="button" href="busca.html">Chico Xavier</a>
         </div>
       </div>
     </div>
 
     <!-- Pergunta do dia -->
-    <div class="card mt" style="margin-top:18px">
+    <div class="card" style="margin-top:18px">
       <div class="card-h">
         <h2>Pergunta do dia</h2>
-        <p>Uma pergunta rotativa, diferente a cada dia.</p>
+        <p>Uma pergunta diferente a cada dia, para reflexão diária.</p>
       </div>
       <div class="card-b">
         <div class="quote">
@@ -44,7 +43,7 @@
           <div id="pd-r" class="ref" style="margin-top:10px"></div>
         </div>
         <div style="margin-top:10px">
-          <a id="pd-link" class="button" href="livro.html" style="font-size:13px">Ver no livro</a>
+          <a id="pd-link" class="button" href="livro.html" style="font-size:13px">Ver no livro →</a>
         </div>
       </div>
     </div>
@@ -54,22 +53,17 @@
       <a class="feat-card" href="livro.html">
         <div class="feat-icon">📖</div>
         <div class="feat-title">Leitura &amp; Busca</div>
-        <div class="feat-desc">Leia o livro por partes, navegue entre perguntas e pesquise por palavras ou números.</div>
+        <div class="feat-desc">Leia o livro por partes, navegue pergunta a pergunta e pesquise por palavras ou número.</div>
       </a>
       <a class="feat-card" href="estudo.html">
         <div class="feat-icon">🎓</div>
         <div class="feat-title">Estudo Guiado</div>
-        <div class="feat-desc">Plano de leitura com progresso salvo. Avance no ritmo que desejar — 7, 30, 60 ou 365 dias.</div>
+        <div class="feat-desc">Plano de leitura com progresso salvo. Avance em 7, 30, 60 ou 365 dias conforme seu ritmo.</div>
       </a>
       <a class="feat-card" href="notas.html">
         <div class="feat-icon">✏️</div>
         <div class="feat-title">Minhas Notas</div>
-        <div class="feat-desc">Escreva comentários e reflexões pessoais em qualquer pergunta. Salvos no seu dispositivo.</div>
-      </a>
-      <a class="feat-card" href="busca.html">
-        <div class="feat-icon">🔍</div>
-        <div class="feat-title">Obras de Chico Xavier</div>
-        <div class="feat-desc">Pesquise no acervo de obras psicografadas por Chico Xavier — título, espírito e série.</div>
+        <div class="feat-desc">Escreva reflexões e comentários pessoais em qualquer pergunta. Tudo salvo no seu dispositivo.</div>
       </a>
     </div>
 
@@ -79,6 +73,45 @@
       <div class="stat"><div class="stat-n">4</div><div class="stat-l">Partes da Obra</div></div>
       <div class="stat"><div class="stat-n">1857</div><div class="stat-l">Ano de publicação</div></div>
       <div class="stat"><div class="stat-n" id="stat-notas">—</div><div class="stat-l">Suas anotações</div></div>
+    </div>
+
+    <!-- Partes da obra -->
+    <div class="card" style="margin-top:16px">
+      <div class="card-h">
+        <h2>As quatro partes</h2>
+      </div>
+      <div class="card-b">
+        <div class="list" style="gap:8px">
+          <a class="item" href="livro.html?n=1" style="text-decoration:none;color:inherit">
+            <div class="meta">
+              <div class="title">1ª Parte — Das Causas Primeiras</div>
+              <div class="sub">Perguntas 1 a 49 · Deus, infinito, matéria, espírito, o universo</div>
+            </div>
+            <span style="font-size:12px;color:var(--muted);white-space:nowrap">49 q.</span>
+          </a>
+          <a class="item" href="livro.html?n=50" style="text-decoration:none;color:inherit">
+            <div class="meta">
+              <div class="title">2ª Parte — Do Mundo Espírita ou dos Espíritos</div>
+              <div class="sub">Perguntas 50 a 222 · Encarnação, reencarnação, vida espiritual</div>
+            </div>
+            <span style="font-size:12px;color:var(--muted);white-space:nowrap">173 q.</span>
+          </a>
+          <a class="item" href="livro.html?n=223" style="text-decoration:none;color:inherit">
+            <div class="meta">
+              <div class="title">3ª Parte — Das Leis Morais</div>
+              <div class="sub">Perguntas 223 a 629 · Leis de adoração, trabalho, reprodução, progresso</div>
+            </div>
+            <span style="font-size:12px;color:var(--muted);white-space:nowrap">407 q.</span>
+          </a>
+          <a class="item" href="livro.html?n=630" style="text-decoration:none;color:inherit">
+            <div class="meta">
+              <div class="title">4ª Parte — Das Esperanças e das Consolações</div>
+              <div class="sub">Perguntas 630 a 1019 · Penas terrenas, futuras, felicidade suprema</div>
+            </div>
+            <span style="font-size:12px;color:var(--muted);white-space:nowrap">389 q.</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="footer"><span id="visitas">Visitas: —</span> · Livro dos Espíritos — Allan Kardec</div>
@@ -95,14 +128,13 @@
     if(q){
       document.getElementById("pd-num").textContent = "Pergunta nº " + q.numero;
       document.getElementById("pd-q").textContent = q.pergunta;
-      if(q.resposta) document.getElementById("pd-r").textContent = q.resposta.slice(0,280) + (q.resposta.length > 280 ? "…" : "");
+      if(q.resposta) document.getElementById("pd-r").textContent = q.resposta.slice(0, 300) + (q.resposta.length > 300 ? "…" : "");
       document.getElementById("pd-link").href = "livro.html?n=" + q.numero;
     }
 
-    // Count notes
     let nNotes = 0;
-    for(let i=0;i<localStorage.length;i++){
-      const k=localStorage.key(i);
+    for(let i = 0; i < localStorage.length; i++){
+      const k = localStorage.key(i);
       if(k && k.startsWith("nota-le-") && localStorage.getItem(k).trim()) nNotes++;
     }
     document.getElementById("stat-notas").textContent = nNotes;
