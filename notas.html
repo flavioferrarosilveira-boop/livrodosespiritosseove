@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Livro dos Espíritos — Minhas Notas</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Minhas Notas</h1>
+          <div class="sub">Anotações pessoais por pergunta — salvas no seu dispositivo</div>
+        </div>
+        <span class="badge">Livro dos Espíritos</span>
+      </div>
+      <div class="banner-wrap">
+        <img src="assets/img/banner.png" alt="Banner"/>
+      </div>
+      <div class="nav">
+        <div class="badge">Portal do Estudo</div>
+        <div class="links">
+          <a class="button" href="index.html">← Livro</a>
+          <a class="button" href="estudo.html">Estudo Guiado</a>
+          <a class="button active-page" href="notas.html">Minhas Notas</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:16px;align-items:start">
+      <!-- Left: question list + search -->
+      <div class="card" style="grid-column:1">
+        <div class="card-h">
+          <h2>Perguntas</h2>
+        </div>
+        <div class="card-b">
+          <div style="margin-bottom:10px">
+            <input type="search" id="nt-busca" placeholder="Buscar pergunta ou nota…"/>
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer">
+              <input type="checkbox" id="nt-so-notas" style="width:auto;accent-color:var(--accent)"/>
+              Só com notas
+            </label>
+          </div>
+          <div id="nt-lista" class="list" style="gap:6px;max-height:65vh;overflow-y:auto"></div>
+        </div>
+      </div>
+
+      <!-- Right: note editor -->
+      <div class="card" id="nt-editor-card" style="grid-column:2;position:sticky;top:16px">
+        <div class="card-h">
+          <h2>Nota</h2>
+        </div>
+        <div class="card-b">
+          <div id="nt-editor-vazio" class="small" style="color:var(--muted)">
+            Selecione uma pergunta à esquerda para escrever sua reflexão.
+          </div>
+          <div id="nt-editor" class="nota-editor" style="display:none">
+            <div class="nota-title" id="nt-num-label"></div>
+            <div class="sub" id="nt-q-label" style="margin-bottom:8px;line-height:1.6"></div>
+            <textarea id="nt-textarea" placeholder="Escreva sua reflexão, pensamento ou comentário…" rows="8"></textarea>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <button class="button" id="nt-salvar">Salvar</button>
+              <button class="button" id="nt-apagar" style="font-size:13px">Apagar nota</button>
+              <a class="button" id="nt-ler-link" href="#" style="font-size:13px">Ler no livro</a>
+              <span id="nt-saved-msg" style="display:none;font-size:12px;color:var(--muted)">Salva ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="button" id="nt-exportar" style="font-size:13px">Exportar todas as notas</button>
+      <span id="nt-total-notas" class="small" style="align-self:center"></span>
+    </div>
+
+    <div class="footer"><span id="visitas">Visitas: —</span> · Livro dos Espíritos — Allan Kardec</div>
+  </div>
+
+  <script src="data/livro_dos_espiritos_data.js"></script>
+  <script type="module">
+    import { initNotas } from "./js/notas.js";
+    import { initVisitas } from "./js/visitas.js";
+    initNotas();
+    initVisitas();
+  </script>
+</body>
+</html>

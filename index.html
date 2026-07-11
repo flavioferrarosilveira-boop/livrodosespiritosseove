@@ -3,140 +3,71 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Portal Espírita — Estudo e Pesquisa</title>
-  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <title>Livro dos Espíritos — Allan Kardec</title>
+  <link rel="stylesheet" href="assets/css/reader.css"/>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="site-title" href="index.html">Portal <span>Espírita</span></a>
-    <nav><ul class="nav-links">
-      <li><a href="index.html" class="ativo">Início</a></li>
-      <li><a href="busca.html">Chico Xavier</a></li>
-      <li><a href="livro.html">Livro dos Espíritos</a></li>
-      <li><a href="evangelho.html">Evangelho</a></li>
-      <li><a href="biblioteca.html">Biblioteca</a></li>
-      <li><a href="calendario.html">Calendário</a></li>
-    </ul></nav>
-  </div>
-</header>
+  <!-- Mobile overlay -->
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
-<main class="container">
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Estude e pesquise o <em>Espiritismo</em></h1>
-    <p>Busque passagens do Livro dos Espíritos, explore as obras de Chico Xavier e leia o Evangelho segundo o Espiritismo.</p>
-    <form class="hero-search" action="busca.html" method="get">
-      <input type="search" name="q" placeholder="Buscar obras de Chico Xavier…" autocomplete="off"/>
-      <button type="submit" class="btn btn-primary">Buscar</button>
-    </form>
-    <p style="font-size:13px;color:var(--muted)">
-      Ou explore: <a href="livro.html">Livro dos Espíritos</a> · <a href="evangelho.html">Evangelho</a> · <a href="biblioteca.html">Biblioteca</a>
-    </p>
-  </section>
-
-  <hr/>
-
-  <!-- Section cards -->
-  <div class="cards-grid">
-    <a class="scard" href="busca.html">
-      <div class="scard-icon">📚</div>
-      <h2>Obras de Chico Xavier</h2>
-      <p>Pesquise por título, espírito ditante, série ou tema. Busca no texto completo quando disponível.</p>
-      <span class="scard-count">~85 obras cadastradas</span>
-    </a>
-    <a class="scard" href="livro.html">
-      <div class="scard-icon">📖</div>
-      <h2>Livro dos Espíritos</h2>
-      <p>Navegue pelas 1.019 perguntas e respostas de Allan Kardec. Busca por número ou palavras.</p>
-      <span class="scard-count">Allan Kardec · 1857</span>
-    </a>
-    <a class="scard" href="evangelho.html">
-      <div class="scard-icon">✝️</div>
-      <h2>Evangelho Espírita</h2>
-      <p>Mensagem do dia e navegação pelos capítulos do Evangelho segundo o Espiritismo.</p>
-      <span class="scard-count">Allan Kardec · 1864</span>
-    </a>
-    <a class="scard" href="biblioteca.html">
-      <div class="scard-icon">🗂️</div>
-      <h2>Biblioteca Digital</h2>
-      <p>PDFs e materiais para download — slides de aulas e documentos do grupo de estudo.</p>
-      <span class="scard-count">Materiais do grupo</span>
-    </a>
-  </div>
-
-  <hr/>
-
-  <!-- Mensagem do dia -->
-  <div class="card">
-    <div class="card-h">
-      <h2>Mensagem do dia</h2>
-      <p class="card-sub">O Evangelho segundo o Espiritismo — rotativa diária</p>
-    </div>
-    <div class="card-b">
-      <blockquote class="quote">
-        <div id="mensagem-dia" class="dropcap">Carregando…</div>
-        <p id="mensagem-ref" class="quote-ref"></p>
-        <p class="quote-ref"><a id="mensagem-link" href="#" target="_blank" rel="noopener" style="display:none">Ver fonte</a></p>
-      </blockquote>
+  <!-- Mobile top bar -->
+  <div class="topbar">
+    <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="topbar-title">Livro dos Espíritos</span>
+    <div class="topbar-search">
+      <input type="search" id="busca-top" placeholder="Buscar…" oninput="onBusca(this.value)" autocomplete="off"/>
     </div>
   </div>
 
-  <!-- Calendário preview -->
-  <div class="card" style="margin-top:16px">
-    <div class="card-h">
-      <h2>Próximas aulas</h2>
-      <p class="card-sub">Calendário do grupo · <a href="calendario.html">Ver tudo</a></p>
-    </div>
-    <div class="card-b" style="padding-top:0">
-      <div id="cal-preview"></div>
-    </div>
+  <div class="app">
+
+    <!-- ══════════ SIDEBAR ══════════ -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sb-brand">
+        <div class="sb-logo">✦</div>
+        <h1 class="sb-title">Livro dos Espíritos</h1>
+        <div class="sb-sub">Allan Kardec · 1857</div>
+      </div>
+
+      <div class="sb-search-wrap">
+        <input type="search" id="busca-sb" placeholder="Buscar no livro…"
+               oninput="onBusca(this.value)" autocomplete="off"/>
+        <div class="sb-count" id="busca-count" hidden></div>
+      </div>
+
+      <nav class="sb-nav" id="sb-nav" aria-label="Índice"></nav>
+
+      <div class="sb-footer">
+        <a href="estudo.html" class="sb-link">🎓 Estudo Guiado</a>
+        <a href="notas.html" class="sb-link">✏️ Minhas Notas</a>
+      </div>
+
+    </aside>
+
+    <!-- ══════════ MAIN ══════════ -->
+    <main class="main" id="main">
+
+      <!-- Mensagem do dia -->
+      <div class="msg-card" id="msg-card" hidden>
+        <div class="msg-label" id="msg-label">☀ Mensagem do dia</div>
+        <div class="msg-titulo" id="msg-titulo"></div>
+        <blockquote class="msg-texto" id="msg-texto"></blockquote>
+        <button class="msg-close" id="msg-close" onclick="dismissMsg()" aria-label="Fechar">×</button>
+      </div>
+
+      <!-- Book -->
+      <div class="book" id="book"></div>
+
+    </main>
+
   </div>
 
-</main>
-
-<footer class="site-footer">
-  Portal Espírita · <span id="visitas"></span>
-</footer>
-
-<script src="data/evangelho_mensagens_data.js"></script>
-<script src="data/calendario_data.js"></script>
-<script type="module">
-  import { dayOfYear, escapeHtml } from "./js/app.js";
-  import { initVisitas } from "./js/visitas.js";
-
-  // Mensagem do dia
-  const msgs = window.EVANGELHO_DATA || [];
-  if (msgs.length) {
-    const idx = dayOfYear(new Date()) % msgs.length;
-    const m = msgs[idx];
-    document.getElementById("mensagem-dia").textContent = m.texto || "";
-    document.getElementById("mensagem-ref").textContent = m.titulo || "";
-    const lnk = document.getElementById("mensagem-link");
-    if (m.link) { lnk.href = m.link; lnk.style.display = ""; }
-  }
-
-  // Calendário preview
-  const cal = window.CALENDARIO_DATA || [];
-  const hoje = new Date(); hoje.setHours(0,0,0,0);
-  const futuras = cal
-    .filter(e => { const d = new Date(e.data); d.setHours(0,0,0,0); return d >= hoje; })
-    .slice(0, 3);
-  const prev = document.getElementById("cal-preview");
-  if (!futuras.length) {
-    prev.innerHTML = '<p class="sub" style="margin:12px 0 0">Nenhuma aula futura cadastrada.</p>';
-  } else {
-    prev.innerHTML = `<table class="table" style="margin-top:12px">
-      <thead><tr><th>Data</th><th>Tema</th><th>Facilitador</th></tr></thead>
-      <tbody>${futuras.map(e => `
-        <tr><td>${escapeHtml(e.data||"")}</td><td>${escapeHtml(e.tema||"")}</td><td>${escapeHtml(e.facilitador||"—")}</td></tr>
-      `).join("")}</tbody>
-    </table>`;
-  }
-
-  initVisitas();
-</script>
+  <script src="data/livro_dos_espiritos_data.js"></script>
+  <script src="data/evangelho_mensagens_data.js"></script>
+  <script src="js/reader.js"></script>
 </body>
 </html>

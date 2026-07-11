@@ -3,55 +3,110 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Livro dos Espíritos — Portal Espírita</title>
+  <title>Livro dos Espíritos — Leitura e Busca</title>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
-
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="site-title" href="index.html">Portal <span>Espírita</span></a>
-    <nav><ul class="nav-links">
-      <li><a href="index.html">Início</a></li>
-      <li><a href="busca.html">Chico Xavier</a></li>
-      <li><a href="livro.html" class="ativo">Livro dos Espíritos</a></li>
-      <li><a href="evangelho.html">Evangelho</a></li>
-      <li><a href="biblioteca.html">Biblioteca</a></li>
-      <li><a href="calendario.html">Calendário</a></li>
-    </ul></nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <div class="page-hd">
-    <h1>O Livro dos Espíritos</h1>
-    <p>Allan Kardec · 1857 · Busque por número de pergunta ou por palavras.</p>
-  </div>
-
-  <div class="card">
-    <div class="card-b">
-      <div class="search-bar">
-        <input id="le-numero" type="number" placeholder="Nº da pergunta (ex.: 1)" min="1" max="1019" style="max-width:200px"/>
-        <input id="le-texto"  type="search" placeholder="Palavra ou tema (ex.: Deus, alma, reencarnação)"/>
-        <button class="btn btn-primary" id="le-buscar">Buscar</button>
+  <div class="container">
+    <div class="header">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Livro dos Espíritos</h1>
+          <div class="sub">Leitura e busca por número ou palavras</div>
+        </div>
+        <span class="badge">Allan Kardec</span>
       </div>
-      <div class="count-label"><span id="le-count"></span></div>
-      <div id="le-resultados" class="list"></div>
+      <div class="banner-wrap">
+        <img src="assets/img/banner.png" alt="Banner"/>
+      </div>
+      <div class="nav">
+        <div class="badge">Portal do Estudo</div>
+        <div class="links">
+          <a class="button" href="index.html">Início</a>
+          <a class="button active-page" href="livro.html">Leitura</a>
+          <a class="button" href="estudo.html">Estudo</a>
+          <a class="button" href="notas.html">Notas</a>
+        </div>
+      </div>
     </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-b">
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn on" id="tab-leitura">📖 Leitura</button>
+          <button class="tab-btn" id="tab-busca">🔍 Busca</button>
+        </div>
+
+        <!-- ── LEITURA ── -->
+        <div class="tab-pane on" id="pane-leitura">
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+            <select id="lr-parte" style="flex:1;min-width:200px">
+              <option value="">Todas as partes</option>
+              <option value="1">1ª Parte — Das Causas Primeiras (1–49)</option>
+              <option value="2">2ª Parte — Do Mundo Espírita (50–222)</option>
+              <option value="3">3ª Parte — Das Leis Morais (223–629)</option>
+              <option value="4">4ª Parte — Das Esperanças e Consolações (630–1019)</option>
+            </select>
+            <div class="reader-jump">
+              <input type="number" id="lr-num" min="1" max="1019" placeholder="nº" style="width:80px"/>
+              <button class="button" id="lr-ir">Ir</button>
+            </div>
+          </div>
+          <div id="reader-box" class="reader">
+            <div class="reader-part" id="r-parte"></div>
+            <div class="reader-num" id="r-num"></div>
+            <div class="reader-q" id="r-q"></div>
+            <div class="reader-r" id="r-r"></div>
+          </div>
+          <div class="reader-nav" style="margin-top:12px">
+            <button class="button" id="lr-prev">← Anterior</button>
+            <div class="spacer"></div>
+            <button class="btn-nota" id="lr-nota">✏️ Anotar</button>
+            <div class="spacer"></div>
+            <button class="button" id="lr-next">Próxima →</button>
+          </div>
+          <div id="nota-inline" style="display:none;margin-top:12px">
+            <textarea id="nota-txt" placeholder="Escreva sua reflexão sobre esta pergunta…"></textarea>
+            <div style="display:flex;gap:8px;margin-top:6px">
+              <button class="button" id="nota-salvar">Salvar nota</button>
+              <button class="button" id="nota-fechar">Fechar</button>
+            </div>
+          </div>
+          <div id="nota-saved-msg" style="display:none;margin-top:6px;font-size:12px;color:var(--muted)">Nota salva ✓</div>
+        </div>
+
+        <!-- ── BUSCA ── -->
+        <div class="tab-pane" id="pane-busca">
+          <div class="row" style="margin-bottom:12px">
+            <div>
+              <div class="small" style="margin-bottom:4px">Número</div>
+              <input id="le-numero" type="number" min="1" max="1019" placeholder="Ex.: 77"/>
+            </div>
+            <div>
+              <div class="small" style="margin-bottom:4px">Palavra / tema</div>
+              <input id="le-texto" type="search" placeholder="Ex.: Deus, alma, reencarnação"/>
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <button class="button" id="le-buscar">Buscar</button>
+          </div>
+          <div id="le-count" class="small" style="margin-bottom:8px"></div>
+          <div id="le-resultados" class="list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer"><span id="visitas">Visitas: —</span> · Livro dos Espíritos — Allan Kardec</div>
   </div>
 
-</main>
-
-<footer class="site-footer">
-  Portal Espírita · <span id="visitas"></span>
-</footer>
-
-<script src="data/livro_dos_espiritos_data.js"></script>
-<script type="module">
-  import { initLivro }  from "./js/livro.js";
-  import { initVisitas } from "./js/visitas.js";
-  initLivro(); initVisitas();
-</script>
+  <script src="data/livro_dos_espiritos_data.js"></script>
+  <script type="module">
+    import { normalizeText, escapeHtml } from "./js/app.js";
+    import { initVisitas } from "./js/visitas.js";
+    import { initLivro } from "./js/livro.js";
+    initLivro();
+    initVisitas();
+  </script>
 </body>
 </html>
