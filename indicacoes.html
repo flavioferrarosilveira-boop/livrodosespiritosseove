@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Indicações</title>
+  <title>Indicações — Portal Espírita</title>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-  <div class="header-top">
-    <div class="brand">
-      <h1>Indicações de livros</h1>
-      <div class="sub">Links para editoras e livrarias espíritas</div>
-    </div>
-    <span class="badge">Espiritismo</span>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-title" href="index.html">Portal <span>Espírita</span></a>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="busca.html">Chico Xavier</a></li>
+      <li><a href="livro.html">Livro dos Espíritos</a></li>
+      <li><a href="evangelho.html">Evangelho</a></li>
+      <li><a href="biblioteca.html">Biblioteca</a></li>
+      <li><a href="calendario.html">Calendário</a></li>
+    </ul></nav>
   </div>
   <div class="banner-wrap">
     <img src="assets/img/banner.png" alt="Banner"/>
@@ -42,11 +46,23 @@
     <div class="footer"><span id="visitas">Visitas: —</span></div>
   </div>
 
-  <script src="data/indicacoes_data.js"></script>
-  <script type="module">
-    import { initIndicacoes } from "./js/indicacoes.js";
-    import { initVisitas } from "./js/visitas.js";
-    initIndicacoes(); initVisitas();
-  </script>
+  <div class="card">
+    <div class="card-b">
+      <div id="ind-list" class="list"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Portal Espírita · <span id="visitas"></span>
+</footer>
+
+<script src="data/indicacoes_data.js"></script>
+<script type="module">
+  import { initIndicacoes } from "./js/indicacoes.js";
+  import { initVisitas }    from "./js/visitas.js";
+  initIndicacoes(); initVisitas();
+</script>
 </body>
 </html>

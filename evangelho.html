@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Evangelho Espírita — Portal Espírita</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-title" href="index.html">Portal <span>Espírita</span></a>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="busca.html">Chico Xavier</a></li>
+      <li><a href="livro.html">Livro dos Espíritos</a></li>
+      <li><a href="evangelho.html" class="ativo">Evangelho</a></li>
+      <li><a href="biblioteca.html">Biblioteca</a></li>
+      <li><a href="calendario.html">Calendário</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="page-hd">
+    <h1>O Evangelho segundo o Espiritismo</h1>
+    <p>Allan Kardec · 1864 · Mensagem do dia e navegação pelos capítulos.</p>
+  </div>
+
+  <!-- Mensagem do dia -->
+  <div class="card">
+    <div class="card-h">
+      <h2>Mensagem do dia</h2>
+      <p class="card-sub">Rotativa diária — uma reflexão diferente a cada dia</p>
+    </div>
+    <div class="card-b">
+      <blockquote class="quote">
+        <div id="mensagem-dia" class="dropcap">Carregando…</div>
+        <p id="mensagem-ref" class="quote-ref"></p>
+        <p class="quote-ref"><a id="mensagem-link" href="#" target="_blank" rel="noopener" style="display:none">Ver no Kardecpedia</a></p>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- Navegação por capítulos -->
+  <div class="card" style="margin-top:16px">
+    <div class="card-h">
+      <h2>Todas as mensagens</h2>
+      <p class="card-sub">Navegue pelos capítulos disponíveis no acervo</p>
+    </div>
+    <div class="card-b">
+      <div class="search-bar" style="margin-bottom:16px">
+        <input type="search" id="ev-busca" placeholder="Buscar mensagem ou capítulo…" autocomplete="off"/>
+      </div>
+      <div class="count-label"><span id="ev-count"></span></div>
+      <div id="ev-lista" class="list"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Portal Espírita · <span id="visitas"></span>
+</footer>
+
+<script src="data/evangelho_mensagens_data.js"></script>
+<script type="module">
+  import { dayOfYear, normalizeText, escapeHtml } from "./js/app.js";
+  import { initVisitas } from "./js/visitas.js";
+
+  const msgs = window.EVANGELHO_DATA || [];
+
+  // Mensagem do dia
+  if (msgs.length) {
+    const idx = dayOfYear(new Date()) % msgs.length;
+    const m = msgs[idx];
+    document.getElementById("mensagem-dia").textContent = m.texto || "";
+    document.getElementById("mensagem-ref").textContent = m.titulo || "";
+    const lnk = document.getElementById("mensagem-link");
+    if (m.link) { lnk.href = m.link; lnk.style.display = ""; }
+  }
+
+  // Lista navegável
+  const input = document.getElementById("ev-busca");
+  const lista = document.getElementById("ev-lista");
+  const count = document.getElementById("ev-count");
+
+  function render() {
+    const q = normalizeText(input.value);
+    const filtered = q
+      ? msgs.filter(m => normalizeText((m.titulo||"") + " " + (m.texto||"")).includes(q))
+      : msgs;
+
+    count.textContent = `${filtered.length} mensagem${filtered.length !== 1 ? "s" : ""}`;
+
+    if (!filtered.length) {
+      lista.innerHTML = '<div class="item"><div class="meta"><div class="sub">Nenhuma mensagem encontrada.</div></div></div>';
+      return;
+    }
+
+    lista.innerHTML = filtered.map(m => `
+      <div class="item">
+        <div class="meta">
+          <div class="title">${escapeHtml(m.titulo || "")}</div>
+          <div class="sub">${escapeHtml(m.texto || "")}</div>
+          ${m.link ? `<div class="sub" style="margin-top:4px"><a href="${escapeHtml(m.link)}" target="_blank" rel="noopener">Ver fonte</a></div>` : ""}
+        </div>
+      </div>`).join("");
+  }
+
+  input.addEventListener("input", render);
+  render();
+  initVisitas();
+</script>
+</body>
+</html>
