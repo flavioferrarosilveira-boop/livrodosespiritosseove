@@ -3,143 +3,71 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Livro dos Espíritos — Portal de Estudo</title>
-  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <title>Livro dos Espíritos — Allan Kardec</title>
+  <link rel="stylesheet" href="assets/css/reader.css"/>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="header-top">
-        <div class="brand">
-          <h1>Livro dos Espíritos</h1>
-          <div class="sub">Allan Kardec · 1857 · 1.018 perguntas e respostas</div>
-        </div>
-        <span class="badge">Espiritismo</span>
-      </div>
-      <div class="banner-wrap">
-        <img src="assets/img/banner.png" alt="Banner"/>
-      </div>
-      <div class="nav">
-        <div class="badge">Portal do Estudo</div>
-        <div class="links">
-          <a class="button active-page" href="index.html">Início</a>
-          <a class="button" href="livro.html">Leitura</a>
-          <a class="button" href="estudo.html">Estudo</a>
-          <a class="button" href="notas.html">Notas</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- Pergunta do dia -->
-    <div class="card" style="margin-top:18px">
-      <div class="card-h">
-        <h2>Pergunta do dia</h2>
-        <p>Uma pergunta diferente a cada dia, para reflexão diária.</p>
-      </div>
-      <div class="card-b">
-        <div class="quote">
-          <div id="pd-num" class="small" style="margin-bottom:6px"></div>
-          <div id="pd-q" class="txt dropcap"></div>
-          <div id="pd-r" class="ref" style="margin-top:10px"></div>
-        </div>
-        <div style="margin-top:10px">
-          <a id="pd-link" class="button" href="livro.html" style="font-size:13px">Ver no livro →</a>
-        </div>
-      </div>
-    </div>
+  <!-- Mobile overlay -->
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
-    <!-- Feature cards -->
-    <div class="feat-cards">
-      <a class="feat-card" href="livro.html">
-        <div class="feat-icon">📖</div>
-        <div class="feat-title">Leitura &amp; Busca</div>
-        <div class="feat-desc">Leia o livro por partes, navegue pergunta a pergunta e pesquise por palavras ou número.</div>
-      </a>
-      <a class="feat-card" href="estudo.html">
-        <div class="feat-icon">🎓</div>
-        <div class="feat-title">Estudo Guiado</div>
-        <div class="feat-desc">Plano de leitura com progresso salvo. Avance em 7, 30, 60 ou 365 dias conforme seu ritmo.</div>
-      </a>
-      <a class="feat-card" href="notas.html">
-        <div class="feat-icon">✏️</div>
-        <div class="feat-title">Minhas Notas</div>
-        <div class="feat-desc">Escreva reflexões e comentários pessoais em qualquer pergunta. Tudo salvo no seu dispositivo.</div>
-      </a>
+  <!-- Mobile top bar -->
+  <div class="topbar">
+    <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="topbar-title">Livro dos Espíritos</span>
+    <div class="topbar-search">
+      <input type="search" id="busca-top" placeholder="Buscar…" oninput="onBusca(this.value)" autocomplete="off"/>
     </div>
+  </div>
 
-    <!-- Stats -->
-    <div class="stats">
-      <div class="stat"><div class="stat-n">1.018</div><div class="stat-l">Perguntas e Respostas</div></div>
-      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Partes da Obra</div></div>
-      <div class="stat"><div class="stat-n">1857</div><div class="stat-l">Ano de publicação</div></div>
-      <div class="stat"><div class="stat-n" id="stat-notas">—</div><div class="stat-l">Suas anotações</div></div>
-    </div>
+  <div class="app">
 
-    <!-- Partes da obra -->
-    <div class="card" style="margin-top:16px">
-      <div class="card-h">
-        <h2>As quatro partes</h2>
+    <!-- ══════════ SIDEBAR ══════════ -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sb-brand">
+        <div class="sb-logo">✦</div>
+        <h1 class="sb-title">Livro dos Espíritos</h1>
+        <div class="sb-sub">Allan Kardec · 1857</div>
       </div>
-      <div class="card-b">
-        <div class="list" style="gap:8px">
-          <a class="item" href="livro.html?n=1" style="text-decoration:none;color:inherit">
-            <div class="meta">
-              <div class="title">1ª Parte — Das Causas Primeiras</div>
-              <div class="sub">Perguntas 1 a 49 · Deus, infinito, matéria, espírito, o universo</div>
-            </div>
-            <span style="font-size:12px;color:var(--muted);white-space:nowrap">49 q.</span>
-          </a>
-          <a class="item" href="livro.html?n=50" style="text-decoration:none;color:inherit">
-            <div class="meta">
-              <div class="title">2ª Parte — Do Mundo Espírita ou dos Espíritos</div>
-              <div class="sub">Perguntas 50 a 222 · Encarnação, reencarnação, vida espiritual</div>
-            </div>
-            <span style="font-size:12px;color:var(--muted);white-space:nowrap">173 q.</span>
-          </a>
-          <a class="item" href="livro.html?n=223" style="text-decoration:none;color:inherit">
-            <div class="meta">
-              <div class="title">3ª Parte — Das Leis Morais</div>
-              <div class="sub">Perguntas 223 a 629 · Leis de adoração, trabalho, reprodução, progresso</div>
-            </div>
-            <span style="font-size:12px;color:var(--muted);white-space:nowrap">407 q.</span>
-          </a>
-          <a class="item" href="livro.html?n=630" style="text-decoration:none;color:inherit">
-            <div class="meta">
-              <div class="title">4ª Parte — Das Esperanças e das Consolações</div>
-              <div class="sub">Perguntas 630 a 1019 · Penas terrenas, futuras, felicidade suprema</div>
-            </div>
-            <span style="font-size:12px;color:var(--muted);white-space:nowrap">389 q.</span>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <div class="footer"><span id="visitas">Visitas: —</span> · Livro dos Espíritos — Allan Kardec</div>
+      <div class="sb-search-wrap">
+        <input type="search" id="busca-sb" placeholder="Buscar no livro…"
+               oninput="onBusca(this.value)" autocomplete="off"/>
+        <div class="sb-count" id="busca-count" hidden></div>
+      </div>
+
+      <nav class="sb-nav" id="sb-nav" aria-label="Índice"></nav>
+
+      <div class="sb-footer">
+        <a href="estudo.html" class="sb-link">🎓 Estudo Guiado</a>
+        <a href="notas.html" class="sb-link">✏️ Minhas Notas</a>
+      </div>
+
+    </aside>
+
+    <!-- ══════════ MAIN ══════════ -->
+    <main class="main" id="main">
+
+      <!-- Mensagem do dia -->
+      <div class="msg-card" id="msg-card" hidden>
+        <div class="msg-label" id="msg-label">☀ Mensagem do dia</div>
+        <div class="msg-titulo" id="msg-titulo"></div>
+        <blockquote class="msg-texto" id="msg-texto"></blockquote>
+        <button class="msg-close" id="msg-close" onclick="dismissMsg()" aria-label="Fechar">×</button>
+      </div>
+
+      <!-- Book -->
+      <div class="book" id="book"></div>
+
+    </main>
+
   </div>
 
   <script src="data/livro_dos_espiritos_data.js"></script>
-  <script type="module">
-    import { dayOfYear } from "./js/app.js";
-    import { initVisitas } from "./js/visitas.js";
-
-    const data = window.LE_DATA || [];
-    const idx = dayOfYear(new Date()) % data.length;
-    const q = data[idx];
-    if(q){
-      document.getElementById("pd-num").textContent = "Pergunta nº " + q.numero;
-      document.getElementById("pd-q").textContent = q.pergunta;
-      if(q.resposta) document.getElementById("pd-r").textContent = q.resposta.slice(0, 300) + (q.resposta.length > 300 ? "…" : "");
-      document.getElementById("pd-link").href = "livro.html?n=" + q.numero;
-    }
-
-    let nNotes = 0;
-    for(let i = 0; i < localStorage.length; i++){
-      const k = localStorage.key(i);
-      if(k && k.startsWith("nota-le-") && localStorage.getItem(k).trim()) nNotes++;
-    }
-    document.getElementById("stat-notas").textContent = nNotes;
-
-    initVisitas();
-  </script>
+  <script src="data/evangelho_mensagens_data.js"></script>
+  <script src="js/reader.js"></script>
 </body>
 </html>
