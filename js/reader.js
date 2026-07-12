@@ -108,7 +108,7 @@ function buildBook(){
           <div class="q-body">
             <div class="q-p">${esc(q.pergunta||"")}</div>
             <div class="q-r">${esc(q.resposta||"")}</div>
-            <button class="q-nota-btn${nota?" has":""}" onclick="abrirNota(${n})" title="Anotar">${nota?"✏️ Ver nota":"✏️ Anotar"}</button>
+            <button class="q-nota-btn${nota?" has":""}" onclick="abrirNota(${n})" title="Fazer anotação sobre esta pergunta">${nota?"Ver nota":"Anotar"}</button>
           </div>
         </div>`;
       }
@@ -137,7 +137,7 @@ function initMensagem(){
   const msg = EV[idx];
   if(!msg) return;
 
-  document.getElementById("msg-label").textContent = "☀ Mensagem do dia — O Evangelho segundo o Espiritismo";
+  document.getElementById("msg-label").textContent = "Mensagem do dia — Evangelho segundo o Espiritismo";
   document.getElementById("msg-titulo").textContent = msg.titulo||"";
   document.getElementById("msg-texto").textContent  = msg.texto||"";
   card.hidden = false;

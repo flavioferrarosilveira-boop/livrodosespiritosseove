@@ -28,7 +28,10 @@
     <aside class="sidebar" id="sidebar">
 
       <div class="sb-brand">
-        <img class="sb-portrait" src="assets/img/kardec.svg" alt="Retrato de Allan Kardec"/>
+        <img class="sb-portrait"
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Allan_Kardec.jpg/440px-Allan_Kardec.jpg"
+             onerror="this.onerror=null;this.src='assets/img/kardec.svg'"
+             alt="Retrato de Allan Kardec"/>
         <h1 class="sb-title">Livro dos Espíritos</h1>
         <div class="sb-sub">Allan Kardec · 1857</div>
       </div>
@@ -42,8 +45,8 @@
       <nav class="sb-nav" id="sb-nav" aria-label="Índice"></nav>
 
       <div class="sb-footer">
-        <a href="estudo.html" class="sb-link">🎓 Estudo Guiado</a>
-        <a href="notas.html" class="sb-link">✏️ Minhas Notas</a>
+        <a href="estudo.html" class="sb-link">Estudo Guiado</a>
+        <a href="notas.html" class="sb-link">Minhas Notas</a>
       </div>
 
     </aside>
@@ -53,7 +56,7 @@
 
       <!-- Mensagem do dia -->
       <div class="msg-card" id="msg-card" hidden>
-        <div class="msg-label" id="msg-label">☀ Mensagem do dia</div>
+        <div class="msg-label" id="msg-label">Mensagem do dia</div>
         <div class="msg-titulo" id="msg-titulo"></div>
         <blockquote class="msg-texto" id="msg-texto"></blockquote>
         <button class="msg-close" id="msg-close" onclick="dismissMsg()" aria-label="Fechar">×</button>

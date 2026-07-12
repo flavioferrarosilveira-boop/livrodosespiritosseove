@@ -95,7 +95,7 @@ export function initEstudo(){
 
     if(btnLerPrimeiro){
       const primeiro = sessaoItens.find(x => !lidas.includes(Number(x.numero)));
-      btnLerPrimeiro.href = "livro.html?n=" + (primeiro ? primeiro.numero : sessaoItens[0].numero);
+      btnLerPrimeiro.href = "index.html#q-" + (primeiro ? primeiro.numero : sessaoItens[0].numero);
     }
 
     sessaoLista.innerHTML = "";
@@ -106,7 +106,7 @@ export function initEstudo(){
       div.className = "check-item" + (done ? " done" : "");
       div.innerHTML = `
         <input type="checkbox" ${done?"checked":""} data-num="${num}"/>
-        <a class="q-text" href="livro.html?n=${num}" style="color:inherit;text-decoration:none">
+        <a class="q-text" href="index.html#q-${num}" style="color:inherit;text-decoration:none">
           ${escHtml(it.pergunta || "")}
         </a>
         <span class="q-num">nº ${num}</span>`;
