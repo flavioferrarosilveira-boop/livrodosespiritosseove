@@ -110,9 +110,13 @@ input[type=search]:focus, input[type=text]:focus {
 }
 .sb-portrait {
   display: block;
-  width: 120px; height: 145px;
+  width: 116px; height: 116px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
   margin: 0 auto 14px;
-  filter: drop-shadow(0 4px 14px rgba(0,0,0,.55));
+  border: 2px solid rgba(201,168,76,.35);
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.6));
 }
 .sb-title {
   font-size: 15px; font-weight: 400;

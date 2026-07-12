@@ -103,7 +103,7 @@ export function initNotas(){
     ntNumLabel.textContent      = "Pergunta nº " + num;
     ntQLabel.textContent        = it.pergunta || "";
     ntTextarea.value            = lerNota(num);
-    if(ntLerLink) ntLerLink.href = "livro.html?n=" + num;
+    if(ntLerLink) ntLerLink.href = "index.html#q-" + num;
     if(ntSavedMsg) ntSavedMsg.style.display = "none";
     ntTextarea.focus();
 
